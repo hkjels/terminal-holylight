@@ -1,0 +1,3 @@
+[submodule "vim-holylight"]
+	path = vim-holylight
+	url = https://github.com/Dinduks/vim-holylight.git

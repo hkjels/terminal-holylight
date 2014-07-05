@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+
+
+    <!-- Launching and behavior -->
+
+    <key>Disabled</key>
+    <false/>
+    <key>Label</key>
+    <string>no.take.terminal-holylight</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/bin/osascript</string>
+      <string>{{PREFIX}}/opt/terminal-holylight/terminal-holylight.scpt</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <dict>
+      <key>SuccessfulExit</key>
+      <false/>
+    </dict>
+
+
+    <!-- Preferences -->
+
+    <key>Threshold</key>
+    <string>1000000</string>
+
+    <key>Holylight</key>
+    <string>Solarized Light</string>
+
+    <key>Holydark</key>
+    <string>Solarized Dark</string>
+
+
+  </dict>
+</plist>
