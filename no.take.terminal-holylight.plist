@@ -17,13 +17,14 @@
     </array>
     <key>RunAtLoad</key>
     <true/>
-    <key>ThrottleInterval</key>
-    <integer>1200</integer>
     <key>KeepAlive</key>
     <true/>
 
 
     <!-- Preferences -->
+
+    <key>ThrottleInterval</key>
+    <integer>20</integer>
 
     <key>Threshold</key>
     <string>1000000</string>

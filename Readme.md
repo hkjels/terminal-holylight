@@ -12,6 +12,7 @@ Defaults
 To override the defaults, you'll need to edit the plist-file ATM. Works for
 me, but please post a pull request if that's just too much hassle.
 
+- ThrottleInterval: 20
 - Threshold: 100000
 - Light theme name: Light
 - Dark theme name: Dark
@@ -21,7 +22,8 @@ Installation
 ------------
 
 You'll be asked for your password, as root-user is required to install the
-launch agent.
+launch agent. Ones installed, you'll need to log out and in for the change
+to take effect.
 
     $ make
     $ make install
