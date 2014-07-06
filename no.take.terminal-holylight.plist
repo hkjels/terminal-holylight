@@ -17,11 +17,10 @@
     </array>
     <key>RunAtLoad</key>
     <true/>
+    <key>ThrottleInterval</key>
+    <integer>1200</integer>
     <key>KeepAlive</key>
-    <dict>
-      <key>SuccessfulExit</key>
-      <false/>
-    </dict>
+    <true/>
 
 
     <!-- Preferences -->
@@ -30,10 +29,10 @@
     <string>1000000</string>
 
     <key>Holylight</key>
-    <string>Solarized Light</string>
+    <string>Light</string>
 
     <key>Holydark</key>
-    <string>Solarized Dark</string>
+    <string>Dark</string>
 
 
   </dict>
