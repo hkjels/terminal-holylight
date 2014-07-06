@@ -6,8 +6,10 @@ SHELL:=/bin/sh
 # Paths
 #
 
+PKG=terminal-holylight
 PREFIX?=/usr/local
 AGENTS_PATH:=/Library/LaunchAgents
+OPT:=$(PREFIX)/opt/$(PKG)
 
 
 #
@@ -36,12 +38,12 @@ build/%.plist: %.plist
 	cat $^ | sed -e 's@{{PREFIX}}@${PREFIX}@g' > $@
 
 install: build
-	cp -r build $(PREFIX)/opt/terminal-holylight
-	ln -is $(PREFIX)/opt/terminal-holylight/holylight-checker $(PREFIX)/bin
-	sudo ln -is $(PREFIX)/opt/terminal-holylight/no.take.terminal-holylight.plist $(AGENTS_PATH)
+	cp -r build $(OPT)
+	ln -is $(OPT)/holylight-checker $(PREFIX)/bin
+	sudo ln -is $(OPT)/no.take.terminal-holylight.plist $(AGENTS_PATH)
 
 uninstall:
-	rm -fr $(PREFIX)/opt/terminal-holylight
+	rm -fr $(OPT)
 	rm -f $(PREFIX)/bin/holylight-checker
 	rm -f $(AGENTS_PATH)/no.take.terminal-holylight.plist
 
