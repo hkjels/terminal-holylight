@@ -1,5 +1,14 @@
 
-SHELL:=/bin/sh
+SHELL:=/bin/bash
+
+#
+# Preferences
+#
+
+HOLYLIGHT?=$(shell read -p "Light profile: " profile;echo "$$profile")
+HOLYDARK?=$(shell read -p "Dark profile: " profile;echo "$$profile")
+THRESHOLD?=100000
+THROTTLE?=20
 
 
 #
@@ -7,7 +16,7 @@ SHELL:=/bin/sh
 #
 
 PKG=terminal-holylight
-PREFIX?=/usr/local
+PREFIX:=/usr/local
 AGENTS_PATH:=/Library/LaunchAgents
 OPT:=$(PREFIX)/opt/$(PKG)
 
@@ -35,7 +44,13 @@ build/%.scpt: %.applescript
 	osacompile -o $@ $^
 
 build/%.plist: %.plist
-	cat $^ | sed -e 's@{{PREFIX}}@${PREFIX}@g' > $@
+	cat $^ | \
+		sed -e 's@{{PREFIX}}@${PREFIX}@g' \
+				-e 's@{{HOLYLIGHT}}@${HOLYLIGHT}@g' \
+				-e 's@{{HOLYDARK}}@${HOLYDARK}@g' \
+				-e 's@{{THRESHOLD}}@${THRESHOLD}@g' \
+				-e 's@{{THROTTLE}}@${THROTTLE}@g' \
+		> $@
 
 install: build
 	cp -r build $(OPT)

@@ -9,8 +9,9 @@ ambient light sensor.
 Defaults
 --------
 
-To override the defaults, you'll need to edit the plist-file ATM. Works for
-me, but please post a pull request if that's just too much hassle.
+You will be prompted to set profile-names during build. You can change the
+other properties by expressing them explicitly before running make.
+Ex. `THROTTLE=10 THRESHOLD=800000 make`
 
 - ThrottleInterval: 20
 - Threshold: 100000

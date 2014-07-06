@@ -23,17 +23,17 @@
 
     <!-- Preferences -->
 
-    <key>ThrottleInterval</key>
-    <integer>20</integer>
-
-    <key>Threshold</key>
-    <string>1000000</string>
-
     <key>Holylight</key>
-    <string>Light</string>
+    <string>{{HOLYLIGHT}}</string>
 
     <key>Holydark</key>
-    <string>Dark</string>
+    <string>{{HOLYDARK}}</string>
+
+    <key>Threshold</key>
+    <string>{{THRESHOLD}}</string>
+
+    <key>ThrottleInterval</key>
+    <integer>{{THROTTLE}}</integer>
 
 
   </dict>
