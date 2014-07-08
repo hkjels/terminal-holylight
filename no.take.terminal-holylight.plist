@@ -12,27 +12,24 @@
     <string>no.take.terminal-holylight</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/usr/bin/osascript</string>
-      <string>{{PREFIX}}/opt/terminal-holylight/terminal-holylight.scpt</string>
+      <string>{{PREFIX}}/opt/terminal-holylight/terminal-holylight.app/Contents/MacOS/applet</string>
     </array>
     <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
     <true/>
 
 
     <!-- Preferences -->
 
-    <key>Holylight</key>
-    <string>{{HOLYLIGHT}}</string>
+    <key>Light</key>
+    <string>{{LIGHT}}</string>
 
-    <key>Holydark</key>
-    <string>{{HOLYDARK}}</string>
+    <key>Dark</key>
+    <string>{{DARK}}</string>
 
     <key>Threshold</key>
-    <string>{{THRESHOLD}}</string>
+    <integer>{{THRESHOLD}}</integer>
 
-    <key>ThrottleInterval</key>
+    <key>Throttle</key>
     <integer>{{THROTTLE}}</integer>
 
 

@@ -15,8 +15,6 @@ Ex. `THROTTLE=10 THRESHOLD=800000 make`
 
 - ThrottleInterval: 20
 - Threshold: 100000
-- Light theme name: Light
-- Dark theme name: Dark
 
 
 Installation

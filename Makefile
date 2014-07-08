@@ -5,10 +5,10 @@ SHELL:=/bin/bash
 # Preferences
 #
 
-HOLYLIGHT?=$(shell read -p "Light profile: " profile;echo "$$profile")
-HOLYDARK?=$(shell read -p "Dark profile: " profile;echo "$$profile")
-THRESHOLD?=100000
-THROTTLE?=20
+LIGHT?=$(shell read -p "Light profile: " profile;echo "$$profile")
+DARK?=$(shell read -p "Dark profile: " profile;echo "$$profile")
+THRESHOLD?=1000000
+THROTTLE?=10
 
 
 #
@@ -33,33 +33,32 @@ PLIST:=$(wildcard *.plist)
 # Targets
 #
 
-build: vim-holylight/bin/holylight-checker $(SRC:%.applescript=build/%.scpt) $(PLIST:%.plist=build/%.plist)
+build: vim-holylight/bin/holylight-checker $(SRC:%.applescript=build/%.app) $(PLIST:%.plist=build/%.plist)
 	cp $< $@
 	@echo
 	@echo '    Built!'
 	@echo
 
-build/%.scpt: %.applescript
+build/%.app: %.applescript
 	mkdir -p build
-	osacompile -o $@ $^
+	osacompile -so $@ $^
+	chmod +x $@
 
 build/%.plist: %.plist
 	cat $^ | \
 		sed -e 's@{{PREFIX}}@${PREFIX}@g' \
-				-e 's@{{HOLYLIGHT}}@${HOLYLIGHT}@g' \
-				-e 's@{{HOLYDARK}}@${HOLYDARK}@g' \
-				-e 's@{{THRESHOLD}}@${THRESHOLD}@g' \
-				-e 's@{{THROTTLE}}@${THROTTLE}@g' \
+		-e 's@{{LIGHT}}@${LIGHT}@g' \
+		-e 's@{{DARK}}@${DARK}@g' \
+		-e 's@{{THRESHOLD}}@${THRESHOLD}@g' \
+		-e 's@{{THROTTLE}}@${THROTTLE}@g' \
 		> $@
 
 install: build
 	cp -r build $(OPT)
-	ln -is $(OPT)/holylight-checker $(PREFIX)/bin
-	sudo ln -is $(OPT)/no.take.terminal-holylight.plist $(AGENTS_PATH)
+	sudo cp $(OPT)/no.take.terminal-holylight.plist $(AGENTS_PATH)
 
 uninstall:
 	rm -fr $(OPT)
-	rm -f $(PREFIX)/bin/holylight-checker
 	rm -f $(AGENTS_PATH)/no.take.terminal-holylight.plist
 
 clean:
