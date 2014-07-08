@@ -42,6 +42,7 @@ build: vim-holylight/bin/holylight-checker $(SRC:%.applescript=build/%.app) $(PL
 build/%.app: %.applescript
 	mkdir -p build
 	osacompile -so $@ $^
+	defaults write '$(PWD)/$@/Contents/Info' LSUIElement -int 1
 	chmod +x $@
 
 build/%.plist: %.plist
