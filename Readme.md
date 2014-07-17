@@ -24,8 +24,9 @@ You'll be asked for your password, as root-user is required to install the
 launch agent. Ones installed, you'll need to log out and in for the change
 to take effect.
 
-    $ make
-    $ make install
+    $ git clone --recursive https://github.com/hkjels/terminal-holylight.git
+    $ cd terminal-holylight
+    $ make -s install
 
 
 Author

@@ -33,6 +33,8 @@ PLIST:=$(wildcard *.plist)
 # Targets
 #
 
+all: build
+
 build: vim-holylight/bin/holylight-checker $(SRC:%.applescript=build/%.app) $(PLIST:%.plist=build/%.plist)
 	cp $< $@
 	@echo
@@ -54,9 +56,12 @@ build/%.plist: %.plist
 		-e 's@{{THROTTLE}}@${THROTTLE}@g' \
 		> $@
 
-install: build
+install: all
 	cp -r build $(OPT)
 	sudo cp $(OPT)/no.take.terminal-holylight.plist $(AGENTS_PATH)
+	@echo
+	@echo '    Installed!'
+	@echo
 
 uninstall:
 	rm -fr $(OPT)
