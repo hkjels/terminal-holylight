@@ -16,16 +16,13 @@ You will be prompted to set profile-names during build. You can change the
 other properties by expressing them explicitly before running make.
 Ex. `THROTTLE=10 THRESHOLD=800000 make`
 
-- ThrottleInterval: 20
-- Threshold: 100000
-
 
 Installation
 ------------
 
 You'll be asked for your password, as root-user is required to install the
-launch agent. Ones installed, you'll need to log out and in for the change
-to take effect.
+launch agent. Ones installed, you'll need to log out and back in for the
+change to take effect.
 
     $ git clone --recursive https://github.com/hkjels/terminal-holylight.git
     $ cd terminal-holylight
