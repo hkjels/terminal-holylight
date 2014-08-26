@@ -6,6 +6,9 @@ An AppleScript to change terminal-profile depending on your Macbook's
 ambient light sensor.
 
 
+![Terminal holylight](https://raw.githubusercontent.com/hkjels/github-images/master/terminal-holylight/terminal-holylight.gif)
+
+
 Defaults
 --------
 
